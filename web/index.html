@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文件转换工具</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="logo-container">
+    <img src="audio-convert.svg" alt="Logo" class="logo">
+  </div>
+  <nav class="nav">
+    <a href="#" data-tab="audio-conversion" class="active">音频转换</a>
+    <a href="#" data-tab="video-to-audio">视频转音频(TODO)</a>
+    <a href="#" data-tab="other">其他(TODO)</a>
+  </nav>
+  <div class="login-container">
+    <button class="login-button">登录</button>
+  </div>
+</header>
+
+<main class="main">
+  <section id="audio-conversion" class="content active">
+    <h2>音频转换</h2>
+    <div class="file-upload">
+      <div class="upload-buttons">
+        <button id="addFiles">添加文件</button>
+        <button id="clearFiles">清空文件</button>
+      </div>
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" multiple accept=".mp4,.avi,.mov,.mp3,.wav" style="display: none;">
+        <p>拖动文件到这里</p>
+        <ul class="files-list" id="filesList"></ul>
+      </div>
+      <div class="output-format">
+        <label for="outputFormat">输出格式:</label>
+        <div id="formatOptions"></div>
+      </div>
+      <button id="startConversion" disabled>开始转换</button>
+    </div>
+  </section>
+  <section id="video-to-audio" class="content">
+    <h2>视频转音频</h2>
+    <!-- 视频转音频的内容 -->
+  </section>
+  <section id="other" class="content">
+    <h2>其他</h2>
+    <!-- 其他功能的内容 -->
+  </section>
+</main>
+
+<footer class="footer">
+  <p>备案号：XXXXX</p>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* 左右对齐 */
+  align-items: center;
+  background: #333;
+  color: white;
+  height: 60px;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  margin-right: 100px;
+}
+
+.logo {
+  max-height: 40px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  flex-grow: 1; /* 让导航栏占据剩余空间 */
+  justify-content: center; /* 中间对齐 */
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav a.active, .nav a:hover {
+  color: #ffcc00;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+}
+
+.login-button {
+  background: none; /* 无背景 */
+  border: 1px solid white; /* 边框 */
+  color: white; /* 字体颜色 */
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.login-button:hover {
+  color: #007bff; /* 鼠标悬停颜色 */
+  border-color: #007bff; /* 鼠标悬停边框颜色 */
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2rem 80px;
+  min-height: calc(100vh - 120px);
+  margin-top: 60px;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+.file-upload {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.upload-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.upload-buttons button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: transparent; /* 透明背景 */
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.upload-buttons button:hover {
+  color: rgb(83, 139, 225);
+  border-color: rgb(83, 139, 225);
+}
+
+.upload-area {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 2rem 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #aaa;
+}
+
+.files-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0; /* 减小文件列表的上下间距 */
+}
+
+.files-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem 0; /* 减小文件项的上下间距 */
+  padding: 0.5rem 1rem;
+  background: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.files-list li button {
+  background: none;
+  border: none;
+  color: #d9534f;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.files-list li button:hover {
+  color: #c9302c;
+}
+
+/************************** 输出格式： *************************/
+.output-format {
+  display: flex;
+  align-items: center;
+  justify-content: left; /* 居中对齐 */
+  margin: 1rem 0;
+}
+
+.output-format label {
+  margin-right: 1rem;
+  font-size: 16px;
+}
+
+.radio-label {
+  /* margin-left: 0.5rem; */
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.radio-label:hover {
+  background-color: #e0e0e0;
+}
+
+#startConversion {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 5px; /* 边框曲度 */
+  background-color: #007bff; /* 按钮背景色 */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#startConversion:hover {
+  background-color: #0056b3; /* 悬停时的背景色 */
+}
+
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  height: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (max-width: 600px) {
+  .header, .footer {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .logo-container {
+    margin-bottom: 1rem; /* 在小屏幕设备上给logo留出空间 */
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: space-around; /* 小屏幕上均匀分布菜单项 */
+  }
+}
