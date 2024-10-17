@@ -118,3 +118,23 @@ python run.py
 - 转换成功会自动下载压缩包
 
   ![1729159813498]( assets/1729159813498.png)
+
+
+
+## TODO
+
+- 视频转音频
+- 其他
+- 登录
+
+
+
+## 鸣谢
+
+- 感谢 [iconfont](https://www.iconfont.cn/search/index?searchType=icon&q=%E9%9F%B3%E9%A2%91%E8%BD%AC%E6%8D%A2) 提供的svg图像
+
+- 感谢 [ffmpeg](https://ffmpeg.org/) 提供的格式转换技术
+
+- 本项目前端代码大部分为AI生成，感谢 [通义千问](https://tongyi.aliyun.com/qianwen/) 、[ChatGPT](https://chatgpt.com/)。
+
+  
