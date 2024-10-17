@@ -1,5 +1,5 @@
 from log_config import setup_logger
-from flask import Flask, request, jsonify, make_response, send_file
+from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS  # 导入 CORS
 import zipfile
 import io
@@ -72,16 +72,26 @@ def file_convert_mp3():
     local_paths = save_file_to_local(files=files)
     mp3_result_paths = handle_convert(origin_audio_local_paths=local_paths, target_suffix=target_type)
 
+    if not mp3_result_paths:
+        return jsonify({'error': '转换失败'}), 400
+
     # 返回压缩包流
     zip_buffer = create_zip_from_file_path(mp3_result_paths)
 
     # 准备响应
     response = make_response(zip_buffer.getvalue())
-    response.headers['Content-Disposition'] = 'attachment; filename=Processed_Files.zip'
+    response.headers['Content-Disposition'] = 'attachment; filename=converted.zip'
     response.headers['Content-Type'] = 'application/zip'
     
     return response
 
+
+@app.route('/py-api/support/audio', methods=['GET'])
+def get_support_target_ext():
+    """
+        获取支持的目标音频
+    """
+    return jsonify({'code': 0, 'msg': 'ok', 'data': sorted(list(get_env_support_target_audio_ext()))}), 200
 
 
 '''

@@ -112,8 +112,8 @@ body, html {
 }
 
 .upload-buttons button:hover {
-  color: rgb(83, 139, 225);
-  border-color: rgb(83, 139, 225);
+  color: rgb(29, 111, 233);
+  border-color: rgb(29, 111, 233);
 }
 
 .upload-area {
@@ -182,19 +182,24 @@ body, html {
 }
 
 #startConversion {
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #007bff;
   border: none;
-  border-radius: 5px; /* 边框曲度 */
-  background-color: #007bff; /* 按钮背景色 */
-  color: white;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  font-size: 16px;
+}
+#startConversion:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+#startConversion:hover:not(:disabled) {
+  background-color: #0056b3;
 }
 
-#startConversion:hover {
-  background-color: #0056b3; /* 悬停时的背景色 */
-}
 
 .footer {
   background: #333;
@@ -240,4 +245,46 @@ body, html {
     width: 100%;
     justify-content: space-around; /* 小屏幕上均匀分布菜单项 */
   }
+}
+
+/* 提示消息样式 */
+
+#notificationContainer {
+  position: fixed;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notification {
+  padding: 15px 30px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.notification.success {
+  background-color: #67C23A; /* 绿色 - 成功提示 */
+}
+
+.notification.error {
+  background-color: #F56C6C; /* 红色 - 错误提示 */
+}
+
+.notification.warning {
+  background-color: #E6A23C; /* 橙色 - 警告提示 */
 }

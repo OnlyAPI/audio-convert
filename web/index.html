@@ -17,9 +17,11 @@
     <a href="#" data-tab="other">其他(TODO)</a>
   </nav>
   <div class="login-container">
-    <button class="login-button">登录</button>
+    <button class="login-button">登录(TODO)</button>
   </div>
 </header>
+
+<div id="notificationContainer"></div>
 
 <main class="main">
   <section id="audio-conversion" class="content active">
@@ -30,7 +32,7 @@
         <button id="clearFiles">清空文件</button>
       </div>
       <div class="upload-area" id="uploadArea">
-        <input type="file" id="fileInput" multiple accept=".mp4,.avi,.mov,.mp3,.wav" style="display: none;">
+        <input type="file" id="fileInput" multiple style="display: none;">
         <p>拖动文件到这里</p>
         <ul class="files-list" id="filesList"></ul>
       </div>
@@ -38,7 +40,7 @@
         <label for="outputFormat">输出格式:</label>
         <div id="formatOptions"></div>
       </div>
-      <button id="startConversion" disabled>开始转换</button>
+      <button id="startConversion">开始转换</button>
     </div>
   </section>
   <section id="video-to-audio" class="content">
