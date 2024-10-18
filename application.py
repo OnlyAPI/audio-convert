@@ -19,6 +19,6 @@ env = {
     },
     'max_file_count': 10, # 最大文件数量
     'max_file_size': 50 * 1024 * 1024, # 最大文件大小
-    'support_receive_audio_ext': {'mp3', 'wav', 'ogg', 'flac'}, # 允许转换的原音频格式
-    'support_target_audio_ext': {'mp3', 'wav', 'ogg', 'flac'} # 允许转换的目标格式
+    'support_receive_audio_ext': {'mp3','flac','wav','ogg'}, # 允许转换的原音频格式
+    'support_target_audio_ext': {'mp3','flac','wav','ogg'} # 允许转换的目标格式
 }

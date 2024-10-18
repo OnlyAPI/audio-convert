@@ -132,9 +132,22 @@ python run.py
 ## 鸣谢
 
 - 感谢 [iconfont](https://www.iconfont.cn/search/index?searchType=icon&q=%E9%9F%B3%E9%A2%91%E8%BD%AC%E6%8D%A2) 提供的svg图像
-
 - 感谢 [ffmpeg](https://ffmpeg.org/) 提供的格式转换技术
-
 - 本项目前端代码大部分为AI生成，感谢 [通义千问](https://tongyi.aliyun.com/qianwen/) 、[ChatGPT](https://chatgpt.com/)。
 
-  
+
+
+## 问题
+
+1. 测试过程中flac文件转 mp3、flac、wav、ogg格式可以转换成功，但是转 aac、 alac 、 m4a 、 wma 格式时均报错，报错大致内容为：
+
+   ```
+   [aist#0:0/pcm_s16le @ 000002ba392c2e40] Guessed Channel Layout: stereo
+   Input #0, wav, from 'C:\Users\yifan\AppData\Local\Temp\tmp_t56duw0':
+     Duration: 00:03:46.83, bitrate: 1411 kb/s
+     Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 44100 Hz, stereo, s16, 1411 kb/s
+   [AVFormatContext @ 000002ba39037780] Requested output format 'wma' is not known.
+   ```
+
+   
+

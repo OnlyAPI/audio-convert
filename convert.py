@@ -9,14 +9,10 @@ from log_config import setup_logger
 # 使用 setup_logger 配置模块A的日志记录器
 logger = setup_logger(__name__)
 
-# 设置 ffmpeg 和 ffprobe 的路径
-ffmpeg_path = get_current_system_ffmpeg_path()
-ffprobe_path = get_current_system_ffprobe_path()
-
 # 设置 pydub 使用的路径
-AudioSegment.converter = ffmpeg_path
-AudioSegment.ffmpeg = ffmpeg_path
-AudioSegment.ffprobe = ffprobe_path
+AudioSegment.converter = get_current_system_ffmpeg_path()
+AudioSegment.ffmpeg = get_current_system_ffmpeg_path()
+AudioSegment.ffprobe = get_current_system_ffprobe_path()
 
 
 def audio_file_2_mp3(origin_audio_local_paths: list) -> list:

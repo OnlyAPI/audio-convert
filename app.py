@@ -6,7 +6,7 @@ import io
 import os
 
 from convert import handle_convert
-from func import save_file_to_local, get_env_max_file_count, get_env_max_file_size, is_support_target_audio_ext, get_env_support_target_audio_ext
+from func import save_file_to_local, get_env_max_file_count, get_env_max_file_size, is_support_target_audio_ext, get_env_support_target_audio_ext, get_env_support_receive_audio_ext
 
 app = Flask(__name__)
 CORS(app=app)
@@ -86,12 +86,20 @@ def file_convert_mp3():
     return response
 
 
-@app.route('/py-api/support/audio', methods=['GET'])
+@app.route('/py-api/support/target-audio', methods=['GET'])
 def get_support_target_ext():
     """
-        获取支持的目标音频
+        获取支持的目标音频格式
     """
     return jsonify({'code': 0, 'msg': 'ok', 'data': sorted(list(get_env_support_target_audio_ext()))}), 200
+
+
+@app.route('/py-api/support/receive-audio', methods=['GET'])
+def get_support_receive_ext():
+    """
+        获取支持的输入音频格式
+    """
+    return jsonify({'code': 0, 'msg': 'ok', 'data': sorted(list(get_env_support_receive_audio_ext()))}), 200
 
 
 '''

@@ -63,12 +63,31 @@ function initAudioConverter() {
 
   // 动态获取音频格式选项
   fetchAudioFormats();
+  fetchReceiveAudioFormats()
 
+  
+   // 获取支持的目标音频格式
   function fetchAudioFormats() {
-    apiRequest('/support/audio')
+    apiRequest('/support/target-audio')
       .then(response => response)
       .then(data => {
         generateFormatOptions(data.data);
+      })
+      .catch(error => {
+        console.error('获取音频格式失败:', error);
+      });
+  }
+
+
+  // 获取支持的输入音频格式
+  function fetchReceiveAudioFormats() {
+    apiRequest('/support/receive-audio')
+      .then(response => response)
+      .then(data => {
+          // 将接口返回的格式拼接成字符串：.mp3,.mov,.wav
+          const acceptValue = data.data.map(format => `.${format}`).join(',');
+          fileInput.setAttribute('accept', acceptValue);
+          console.log('Updated accept attribute to:', acceptValue);
       })
       .catch(error => {
         console.error('获取音频格式失败:', error);
@@ -92,10 +111,6 @@ function initAudioConverter() {
       formatOptionsContainer.appendChild(radioLabel);
     });
 
-    // 将接口返回的格式拼接成字符串：.mp3,.mov,.wav
-    const acceptValue = audioFormats.map(format => `.${format}`).join(',');
-    fileInput.setAttribute('accept', acceptValue);
-    console.log('Updated accept attribute to:', acceptValue);
   }
 
   // 事件绑定
