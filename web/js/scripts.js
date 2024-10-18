@@ -122,14 +122,16 @@ function initAudioConverter() {
 
   // 文件处理
   function handleFiles(e) {
-    selectedFiles = Array.from(e.target.files);  // 保存当前选择的文件
+    const newFiles = Array.from(e.target.files);  // 保存当前选择的新文件
+    selectedFiles = [...selectedFiles, ...newFiles];  // 合并新文件与已选文件
     updateFileList();
   }
 
 
   function handleDrop(e) {
     e.preventDefault();
-    selectedFiles = Array.from(e.dataTransfer.files);  // 保存拖拽的文件
+    const newFiles = Array.from(e.dataTransfer.files);  // 保存拖拽的新文件
+    selectedFiles = [...selectedFiles, ...newFiles];  // 合并新文件与已选文件
     updateFileList();
   }
 
